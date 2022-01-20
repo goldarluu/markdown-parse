@@ -9,7 +9,7 @@ public class MarkdownParse {
         ArrayList<String> toReturn = new ArrayList<>();
         // find the next [, then find the ], then find the (, then take up to
         // the next )
-        /*int currentIndex = 0;
+        int currentIndex = 0;
         while(currentIndex < markdown.length()) {
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
@@ -19,7 +19,6 @@ public class MarkdownParse {
             currentIndex = closeParen + 1;
         }
 
-        */
         return toReturn;
     }
     public static void main(String[] args) throws IOException {
