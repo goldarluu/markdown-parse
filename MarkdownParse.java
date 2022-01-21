@@ -15,10 +15,14 @@ public class MarkdownParse {
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
+            // we want to check if previous char is a '!' 
+            if (nextOpenBracket != 0 && markdown.charAt(nextOpenBracket - 1) == '!')  {
+                currentIndex = closeParen + 1; // skips over the new.
+                continue; 
+            }
+            
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
-            //System.out.println(currentIndex); 
-            //System.out.println(markdown.charAt(currentIndex)); // we went past the len of the string
         }
 
         return toReturn;
