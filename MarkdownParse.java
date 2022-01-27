@@ -12,7 +12,6 @@ public class MarkdownParse {
         int currentIndex = 0;
         while(currentIndex < markdown.length()) {
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
-            System.out.println(nextOpenBracket); 
             if (nextOpenBracket == -1) {
                 break; 
             }
