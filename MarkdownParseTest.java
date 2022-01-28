@@ -38,7 +38,7 @@ public class MarkdownParseTest {
     }
 
     @Test 
-    public void testincorrectlinkFile() {
+    public void testincorrectlinkFile() throws IOException{
         Path fileName = Path.of("incorrect_link.md");
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(contents);
