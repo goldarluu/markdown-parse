@@ -13,24 +13,22 @@ public class MarkdownParse {
         while(currentIndex < markdown.length()) {
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
             if (nextOpenBracket == -1) {
-                break; 
+                return toReturn;
             }
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
-            if(openParen == -1) {
+            if (openParen == -1) {
                 currentIndex = nextCloseBracket + 1;
-                continue; 
+                continue;
             }
             int closeParen = markdown.indexOf(")", openParen);
-            // we want to check if previous char is a '!' 
-            if (markdown.charAt(nextOpenBracket - 1) == '!')  {
-                currentIndex = closeParen + 1; // skips over the new.
-                continue; 
+            if (nextOpenBracket != 0 && markdown.charAt(nextOpenBracket - 1) == '!') {
+                currentIndex = closeParen + 1;
+                continue;
             }
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
         }
-
         return toReturn;
     }
     public static void main(String[] args) throws IOException {
