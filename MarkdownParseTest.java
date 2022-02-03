@@ -34,7 +34,7 @@ public class MarkdownParseTest {
         Path fileName = Path.of("link_first.md");
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(contents);
-        assertEquals("Testing for link_first.md", List.of("googledoc.com"), links);
+        assertNotEquals("Testing for link_first.md", List.of("googledoc.com"), links);
     }
 
     @Test 
