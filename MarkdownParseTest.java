@@ -45,5 +45,11 @@ public class MarkdownParseTest {
         assertEquals("Testing for incorrectlink.md", List.of(), links);
     }
     
-
+    @Test
+    public void testFormat2() throws IOException {
+        Path fileName = Path.of("format2.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        assertNotEquals(List.of(), links);
+    }
 }
