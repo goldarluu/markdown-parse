@@ -50,6 +50,6 @@ public class MarkdownParseTest {
         Path fileName = Path.of("format2.md");
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(contents);
-        assertNotEquals(List.of(), links);
+        assertEquals(List.of(), links);
     }
 }
